@@ -5,42 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@android:color/darker_gray"
-    android:foregroundTintMode="src_atop"
-    app:circularflow_defaultRadius="56dp"
-    app:circularflow_radiusInDP="45dp"
-    app:layout_constraintCircleRadius="56dp">
+    android:background="@color/pink">
 
 
     <Button
         android:id="@+id/dietPlanButton"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="362dp"
-        android:layout_height="541dp"
-        android:layout_margin="10dp"
-        android:layout_marginStart="59dp"
-        android:layout_marginTop="56dp"
-
-        android:layout_marginEnd="78dp"
-        android:layout_marginBottom="60dp"
-        android:background="@drawable/logo2"
-        android:bufferType="editable"
-        android:contextClickable="true"
-        android:foregroundTintMode="src_atop"
-        android:shadowRadius="45"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:layout_width="188dp"
+        android:layout_height="85dp"
+        android:layout_margin="40dp"
+        android:background="@color/colorPrimary"
+        android:text="Diet Plan"
         android:textColor="@android:color/widget_edittext_dark"
         android:textSize="34sp"
-        android:textStyle="bold"
-        app:circularflow_defaultRadius="45dp"
-        app:circularflow_radiusInDP="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintCircleRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.824" />
+        app:layout_constraintVertical_bias="0.478" />
     <!--&lt;!&ndash;        app:layout_constraintTop_toBottomOf="@id/logoImageView"&ndash;&gt;-->
     <!--        app:layout_constraintVertical_bias="1.0"-->
 
