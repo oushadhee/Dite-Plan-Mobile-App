@@ -5,16 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@color/pink">
+    android:background="@color/colorPrimary">
 
 
     <Button
         android:id="@+id/dietPlanButton"
-        android:layout_width="188dp"
-        android:layout_height="85dp"
+        android:layout_width="274dp"
+        android:layout_height="202dp"
         android:layout_margin="40dp"
-        android:background="@color/colorPrimary"
-        android:text="Diet Plan"
+        android:background="@drawable/logo5"
         android:textColor="@android:color/widget_edittext_dark"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
