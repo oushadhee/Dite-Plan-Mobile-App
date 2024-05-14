@@ -21,7 +21,7 @@ abstract class RoomAppDb : RoomDatabase() {
             }
         }
 
-
+        // Provides a method to get the database instance
         fun getAppDatabase(context: Context): RoomAppDb {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -29,10 +29,10 @@ abstract class RoomAppDb : RoomDatabase() {
                     RoomAppDb::class.java,
                     "AppDB" // Correct the database name here
                 )
-                    .addMigrations(migration_1_2)
-                    .allowMainThreadQueries()
+                    .addMigrations(migration_1_2) // Adds the defined migration to the database builder
+                    .allowMainThreadQueries()   // Allows database queries on the main thread (not recommended for production)
                     .build()
-                INSTANCE = instance
+                INSTANCE = instance  // Returns the database instance
                 // return instance
                 instance
             }

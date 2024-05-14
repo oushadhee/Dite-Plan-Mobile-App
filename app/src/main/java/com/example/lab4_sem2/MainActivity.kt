@@ -15,6 +15,7 @@ import com.example.lab4_sem2.db.UserEntity
 
 class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
 
+    // Declaring UI components and ViewModel variables
     private lateinit var recyclerView: RecyclerView
     private lateinit var recyclerViewAdapter: RecyclerViewAdapter
     private lateinit var viewModel: MainActivityViewModel
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Initializing UI components
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerViewAdapter = RecyclerViewAdapter(this)
@@ -38,22 +40,27 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
         emailInput = findViewById(R.id.emailInput)
         phoneInput = findViewById(R.id.phoneInput)
 
+        // Initializing ViewModel
         viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(MainActivityViewModel::class.java)
         viewModel.getAllUsersObservers().observe(this, Observer {
             recyclerViewAdapter.setListData(ArrayList(it))
             recyclerViewAdapter.notifyDataSetChanged()
         })
 
+        // Setting onClickListener for the saveButton
         saveButton.setOnClickListener {
+            // Retrieving input values
             val name = nameInput.text.toString()
             val email = emailInput.text.toString()
             val phone = phoneInput.text.toString()
             val userId = nameInput.getTag(nameInput.id) as? Int ?: 0
 
             if (saveButton.text == "Save") {
+                // If Save button is clicked, insert new user data
                 val user = UserEntity(0, name, email, phone)
                 viewModel.insertUserInfo(user)
             } else {
+                // If Update button is clicked, update existing user data
                 val user = UserEntity(userId, name, email, phone)
                 viewModel.updateUserInfo(user)
                 saveButton.text = "Save"
@@ -66,9 +73,12 @@ class MainActivity : AppCompatActivity(), RecyclerViewAdapter.RowClickListener {
         }
     }
 
+    // Function to handle delete button click for a user
     override fun onDeleteUserClickListener(user: UserEntity) {
         viewModel.deleteUserInfo(user)
     }
+
+    // Function to handle item click in RecyclerView, populating input fields with user data for editing
 
     override fun onItemClickListener(user: UserEntity) {
         nameInput.setText(user.name)
